@@ -3,8 +3,11 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.14'
 gem 'sqlite3'
 gem 'jquery-rails'
+gem 'high_voltage'
+
 
 group :test, :development do
+  gem 'capybara'
   gem 'rspec-rails'
 end
 
