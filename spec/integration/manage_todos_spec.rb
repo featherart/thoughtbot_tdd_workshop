@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'Manage todos' do
   scenario 'create a new todo' do
-    sign_in
+    sign_in_as 'person@example.com'
     click_link 'Add a new todo'
     fill_in 'Description', with: 'Buy some milk'
     click_button 'Create todo'
@@ -10,9 +10,4 @@ feature 'Manage todos' do
     expect(page).to have_css 'li.todo', text: 'Buy some milk'
   end
 
-  def sign_in
-    visit root_path
-    fill_in 'Email address', with: 'person@example.com'
-    click_button 'Sign In'
-  end
 end
