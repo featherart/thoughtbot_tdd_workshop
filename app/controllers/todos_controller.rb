@@ -1,11 +1,12 @@
 class TodosController < ApplicationController
   
-  def new
-    @todo = Todo.new
+  def index
+    @todos = current_user.todos
   end
 
-  def index
-    @todos = Todo.all
+
+  def new
+    @todo = Todo.new
   end
 
   def create
