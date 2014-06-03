@@ -11,6 +11,8 @@ class TodosController < ApplicationController
 
   def create
     @todo = Todo.new(params[:todo])
+    @todo.user = current_user
+    puts "here's current_user: #{current_user.email}"
     @todo.save
     redirect_to todos_path
   end
