@@ -6,6 +6,6 @@ class User
   end
 
   def todos
-
+    Todo.all
   end
 end

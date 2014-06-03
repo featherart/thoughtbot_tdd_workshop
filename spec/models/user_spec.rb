@@ -1,10 +1,13 @@
 require 'spec_helper'
 
 describe User, '#todos' do
-  it 'returns all todos' do
+  it 'returns todos whoe owner email is instantiated with' do
+    Todo.create(description: 'Buy some eggs', owner_email: 'person@example.com')
+    Todo.create(description: 'Buy some milk', owner_email: 'other_person@example.com')
     user = User.new('person@example.com')
+    puts user.todos.length
     expect(user.todos.length).to eq 1
-    expect(user.todos.description).to eq 'Buy some eggs'
+    expect(user.todos.first.description).to eq 'Buy some eggs'
   end
 end
 
